@@ -7,4 +7,9 @@ langchain-pinecone==0.2.8
 langchain_google_genai 
 google-generativeai
 langchain-community==0.3.26
+livekit-agents
+livekit-plugins-google
+livekit-plugins-silero
+flask-cors
+uvicorn
 -e .

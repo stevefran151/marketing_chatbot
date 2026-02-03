@@ -1,4 +1,6 @@
-from flask import Flask, render_template, jsonify, request
+from __future__ import annotations
+from flask import Flask,  ctx, render_template, jsonify, request
+
 from src.helper import download_embeddings
 from langchain_pinecone import PineconeVectorStore
 
@@ -7,8 +9,12 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
-from src.prompt import *
+
+
+from src.prompt import * 
 import os
+
+
 
 app = Flask(__name__)
 
@@ -57,5 +63,5 @@ def chat():
     print("Response : ", response["answer"])
     return str(response["answer"])
 
-if __name__=='__main__':
-    app.run(host="0.0.0.0",port=8080,debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
