@@ -28,7 +28,7 @@ pc = Pinecone(api_key=pinecone_api_key)
 
 index_name = "marketing-chatbot"  
 
-if not pc.has_index(index_name):
+if index_name not in [index.name for index in pc.list_indexes()]:
     pc.create_index(
         name=index_name,
         dimension=384,
